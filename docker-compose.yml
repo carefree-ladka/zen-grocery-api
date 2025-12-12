@@ -1,0 +1,27 @@
+services:
+  api-gateway:
+    build: ./packages/api-gateway
+    ports:
+      - "5000:5000"
+    environment:
+      - PRODUCT_SERVICE_URL=http://product-service:5001
+      - CART_SERVICE_URL=http://cart-service:5002
+    depends_on:
+      - product-service
+      - cart-service
+
+  product-service:
+    build: ./packages/product-service
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - PORT=5001
+
+  cart-service:
+    build: ./packages/cart-service
+    ports:
+      - "5002:5002"
+    environment:
+      - MONGODB_URI=${MONGODB_URI}
+      - PORT=5002
