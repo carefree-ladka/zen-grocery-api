@@ -1,4 +1,4 @@
-# Zen Grocery API - Enterprise TypeScript Microservices
+# Zen Grocery API - Online Grocery Store | Microservices
 
 ## Architecture
 
