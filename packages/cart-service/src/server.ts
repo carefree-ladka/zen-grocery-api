@@ -1,4 +1,4 @@
-import { DatabaseConnection } from '@zen-grocery/shared';
+import { DatabaseConnection, ServiceDiscovery } from '@zen-grocery/shared';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -33,6 +33,10 @@ const start = async () => {
     await DatabaseConnection.connect(process.env.MONGODB_URI!);
     app.listen(PORT, () => {
       console.log(`Cart Service running on port ${PORT}`);
+      
+      // Register with service discovery
+      const serviceDiscovery = new ServiceDiscovery();
+      serviceDiscovery.registerService('cart-service', 'localhost', Number(PORT));
     });
   } catch (error) {
     console.error('Failed to start Cart Service:', error);

@@ -1,4 +1,4 @@
-import { CacheService, DatabaseConnection } from '@zen-grocery/shared';
+import { CacheService, DatabaseConnection, ServiceDiscovery } from '@zen-grocery/shared';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
@@ -28,11 +28,16 @@ app.get('/health', (req, res) => {
 
 const start = async () => {
   try {
-    await DatabaseConnection.connect(process.env.MONGODB_URI!);
+    // Try to connect to database, but don't fail if it's not available
+    try {
+      await DatabaseConnection.connect(process.env.MONGODB_URI!);
+      console.log('Connected to MongoDB');
+    } catch (dbError) {
+      console.warn('MongoDB connection failed, continuing without database:', (dbError as Error).message);
+    }
     
     // Try to connect to Redis, but don't fail if it's not available
     try {
-      console.log('Connecting to Redis:', process.env.REDIS_URL);
       await CacheService.connect(process.env.REDIS_URL);
     } catch (redisError) {
       console.warn('Redis connection failed, continuing without cache:', (redisError as Error).message);
@@ -40,6 +45,10 @@ const start = async () => {
     
     app.listen(PORT, () => {
       console.log(`Product Service running on port ${PORT}`);
+      
+      // Register with service discovery
+      const serviceDiscovery = new ServiceDiscovery();
+      serviceDiscovery.registerService('product-service', 'localhost', Number(PORT));
     });
   } catch (error) {
     console.error('Failed to start Product Service:', error);

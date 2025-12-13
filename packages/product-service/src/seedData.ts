@@ -4,26 +4,145 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const seedProducts = [
-  { name: 'Organic Apples', price: 109.95, category: 'Fruits', imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg' },
-  { name: 'Premium Bananas', price: 22.30, category: 'Fruits', imageUrl: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879_.jpg' },
-  { name: 'Fresh Carrots', price: 55.99, category: 'Vegetables', imageUrl: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg' },
-  { name: 'Whole Milk', price: 15.99, category: 'Dairy', imageUrl: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg' },
-  { name: 'Potato Chips', price: 6.95, category: 'Snacks', imageUrl: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg' },
-  { name: 'Greek Yogurt', price: 16.80, category: 'Dairy', imageUrl: 'https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg' },
-  { name: 'Cheese Slices', price: 9.99, category: 'Dairy', imageUrl: 'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg' },
-  { name: 'Mixed Nuts', price: 10.99, category: 'Snacks', imageUrl: 'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg' },
-  { name: 'Orange Juice', price: 6.40, category: 'Beverages', imageUrl: 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg' },
-  { name: 'Energy Drink', price: 10.90, category: 'Beverages', imageUrl: 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg' },
-  { name: 'Protein Bars', price: 10.90, category: 'Snacks', imageUrl: 'https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg' },
-  { name: 'Breakfast Cereal', price: 11.40, category: 'Breakfast', imageUrl: 'https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg' },
-  { name: 'Bread Loaf', price: 5.99, category: 'Bakery', imageUrl: 'https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg' },
-  { name: 'Pasta Pack', price: 9.99, category: 'Pantry', imageUrl: 'https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg' },
-  { name: 'Frozen Pizza', price: 5.69, category: 'Frozen', imageUrl: 'https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg' },
-  { name: 'Ice Cream', price: 2.99, category: 'Frozen', imageUrl: 'https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg' },
-  { name: 'Fresh Spinach', price: 3.99, category: 'Vegetables', imageUrl: 'https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg' },
-  { name: 'Tomatoes', price: 9.85, category: 'Vegetables', imageUrl: 'https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg' },
-  { name: 'Bell Peppers', price: 7.95, category: 'Vegetables', imageUrl: 'https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_.jpg' },
-  { name: 'Strawberries', price: 12.99, category: 'Fruits', imageUrl: 'https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg' }
+  {
+    name: 'Long sleeve Jacket',
+    price: 150,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2584269/pexels-photo-2584269.jpeg'
+  },
+  {
+    name: 'Jacket with wollen hat',
+    price: 65,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2681751/pexels-photo-2681751.jpeg'
+  },
+  {
+    name: 'Compact fashion t-shirt',
+    price: 55.99,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2752045/pexels-photo-2752045.jpeg'
+  },
+  {
+    name: 'Blue jins',
+    price: 50,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/1485031/pexels-photo-1485031.jpeg'
+  },
+  {
+    name: 'Skirts with full setup',
+    price: 695,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/1631181/pexels-photo-1631181.jpeg'
+  },
+  {
+    name: 'Yellow Hoody',
+    price: 180,
+    category: 'men',
+    imageUrl:
+      'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg'
+  },
+  {
+    name: 'Black t-shirt for women',
+    price: 20,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2010812/pexels-photo-2010812.jpeg'
+  },
+  {
+    name: 'Gouwn with Red velvet',
+    price: 350,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2233703/pexels-photo-2233703.jpeg'
+  },
+  {
+    name: 'Pink beauty',
+    price: 100,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2065195/pexels-photo-2065195.jpeg'
+  },
+  {
+    name: "Jean's stylish Jacket",
+    price: 245,
+    category: 'men',
+    imageUrl:
+      'https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg'
+  },
+  {
+    name: 'Jamdani Saree',
+    price: 800,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/3363204/pexels-photo-3363204.jpeg'
+  },
+  {
+    name: 'Black Jacket',
+    price: 140,
+    category: 'men',
+    imageUrl: 'https://images.pexels.com/photos/983497/pexels-photo-983497.jpeg'
+  },
+  {
+    name: 'Black top with jeans',
+    price: 120,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/3672825/pexels-photo-3672825.jpeg'
+  },
+  {
+    name: 'Clothes with bag',
+    price: 50,
+    category: 'kids',
+    imageUrl:
+      'https://images.pexels.com/photos/36029/aroni-arsa-children-little.jpg'
+  },
+  {
+    name: 'Stylish jeans in lightblue',
+    price: 100,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2738792/pexels-photo-2738792.jpeg'
+  },
+  {
+    name: 'Unknown horizon',
+    price: 350,
+    category: 'men',
+    imageUrl:
+      'https://images.pexels.com/photos/2866077/pexels-photo-2866077.jpeg'
+  },
+  {
+    name: 'Light tops',
+    price: 120,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2010925/pexels-photo-2010925.jpeg'
+  },
+  {
+    name: 'Khakhi jeans',
+    price: 190,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/3054973/pexels-photo-3054973.jpeg'
+  },
+  {
+    name: 'Black full sleeve',
+    price: 170,
+    category: 'women',
+    imageUrl:
+      'https://images.pexels.com/photos/2693849/pexels-photo-2693849.jpeg'
+  },
+  {
+    name: 'Formal for Men',
+    price: 490,
+    category: 'men',
+    imageUrl:
+      'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg'
+  }
 ];
 
 (async () => {

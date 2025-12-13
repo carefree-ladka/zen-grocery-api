@@ -11,11 +11,12 @@
     "format": "prettier --write src/**/*.ts"
   },
   "dependencies": {
+    "axios": "^1.13.2",
     "mongoose": "^7.5.0",
     "redis": "^4.6.8"
   },
   "devDependencies": {
-    "typescript": "^5.2.2",
-    "@types/node": "^20.5.0"
+    "@types/node": "^20.5.0",
+    "typescript": "^5.2.2"
   }
 }
