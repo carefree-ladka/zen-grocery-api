@@ -5,10 +5,15 @@ import { Express } from 'express';
 export const setupSecurity = (app: Express): void => {
   app.use(helmet());
 
+  // More reasonable rate limiting for development/production
   app.use(
     rateLimit({
-      windowMs: 15 * 60 * 1000, // 15 minutes
-      max: 100 // limit each IP to 100 requests per windowMs
+      windowMs: 1 * 60 * 1000, // 1 minute
+      max: 100, // 100 requests per minute per IP
+      message: {
+        error: 'Too many requests, please try again later.',
+        retryAfter: '1 minute'
+      }
     })
   );
 };

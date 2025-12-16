@@ -2,6 +2,7 @@ import { DatabaseConnection, ServiceDiscovery } from '@zen-grocery/shared';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import { CartController } from './controllers/CartController';
 import { CartRepository } from './repositories/CartRepository';
 import { CartService } from './services/CartService';
@@ -13,6 +14,12 @@ const PORT = process.env.PORT || 5002;
 
 app.use(cors());
 app.use(express.json());
+
+// Rate limiting
+app.use(rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 200 // 200 requests per minute per IP
+}));
 
 // Dependency injection
 const cartRepository = new CartRepository();

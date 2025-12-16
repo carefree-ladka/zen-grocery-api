@@ -2,6 +2,7 @@ import { CacheService, DatabaseConnection, ServiceDiscovery } from '@zen-grocery
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
+import rateLimit from 'express-rate-limit';
 import { ProductController } from './controllers/ProductController';
 import { ProductRepository } from './repositories/ProductRepository';
 import { ProductService } from './services/ProductService';
@@ -13,6 +14,12 @@ const PORT = process.env.PORT ?? 5001;
 
 app.use(cors());
 app.use(express.json());
+
+// Rate limiting
+app.use(rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute
+  max: 200 // 200 requests per minute per IP
+}));
 
 // Dependency injection
 const productRepository = new ProductRepository();
